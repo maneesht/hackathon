@@ -59,7 +59,23 @@ public class Article {
         }
         return s;
     }
-
+    public List<Sentence> sortRatings(List<Sentence> sentences)
+    {
+        Sentence holder=new Sentence();
+        boolean flag=true;
+        while(flag) {
+            for (int x = 0; x < sentences.size() - 1; x++) {
+                flag = false;
+                if (sentences.get(x).getRating() < sentences.get(x + 1).getRating()) {
+                    holder = sentences.get(x);
+                    sentences.set(x, sentences.get(x + 1));
+                    sentences.set(x + 1, holder);
+                    flag = true;
+                }
+            }
+        }
+        return sentences;
+    }
     public int checkFrequency(String sentences[], String word) {
         int frequency = 0;
         for(String sentence : sentences) {

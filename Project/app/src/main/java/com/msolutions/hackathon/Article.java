@@ -16,7 +16,8 @@ public class Article {
     //public static void main(String[] args) {
     //}
     List<String> listWords = new ArrayList<String>();
-    public void String(){
+    List<Sentence> sentences = new ArrayList<Sentence>();
+    public void init(){
         String temp="";
 
         BufferedReader read;
@@ -44,10 +45,21 @@ public class Article {
                 wordObj.setHits(hits);
                 words.add(wordObj);
             }
-            Sentence sentence = new Sentence(sentences[i], words);
+            Sentence sentence = new Sentence(words, sentences[i]);
+            this.sentences.add(sentence);
         }
-
     }
+
+    public String getSummary() {
+        String s = "";
+        init();
+
+        for(Sentence sentence: sentences) {
+
+        }
+        return s;
+    }
+
     public int checkFrequency(String sentences[], String word) {
         int frequency = 0;
         for(String sentence : sentences) {

@@ -4,6 +4,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class IntroActivity extends ActionBarActivity {
@@ -14,6 +20,35 @@ public class IntroActivity extends ActionBarActivity {
         setContentView(R.layout.activity_intro);
     }
 
+    public void Wink(final View v) {
+        final Random rand = new Random();
+        final int random = rand.nextInt(3);
+        final ImageView Left = (ImageView) findViewById(R.id.LeftWink);
+        final ImageView Right = (ImageView) findViewById(R.id.RightWink);
+        v.setVisibility(View.INVISIBLE);
+        if (random == 1) {
+            Left.setVisibility(View.VISIBLE);
+            Right.setVisibility(View.INVISIBLE);
+        }
+        else if (random == 2) {
+            Right.setVisibility(View.VISIBLE);
+            Left.setVisibility(View.INVISIBLE);
+        }
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread( new Runnable() {
+                    @Override
+                    public void run() {
+                        v.setVisibility(View.VISIBLE);
+                        Right.setVisibility(View.INVISIBLE);
+                        Left.setVisibility(View.INVISIBLE);
+                    }
+                });
+            }
+        }, 100);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

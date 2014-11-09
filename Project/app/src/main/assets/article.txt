@@ -21,3 +21,23 @@ Health-care workers have frequently been infected while treating patients with s
 Burial ceremonies in which mourners have direct contact with the body of the deceased person can also play a role in the transmission of Ebola.
 
 People remain infectious as long as their blood and body fluids, including semen and breast milk, contain the virus. Men who have recovered from the disease can still transmit the virus through their semen for up to 7 weeks after recovery from illness.
+
+Symptoms of Ebola virus disease
+
+The incubation period, that is, the time interval from infection with the virus to onset of symptoms is 2 to 21 days. Humans are not infectious until they develop symptoms. First symptoms are the sudden onset of fever fatigue, muscle pain, headache and sore throat. This is followed by vomiting, diarrhoea, rash, symptoms of impaired kidney and liver function, and in some cases, both internal and external bleeding (e.g. oozing from the gums, blood in the stools). Laboratory findings include low white blood cell and platelet counts and elevated liver enzymes.
+
+Diagnosis
+
+It can be difficult to distinguish EVD from other infectious diseases such as malaria, typhoid fever and meningitis. Confirmation that symptoms are caused by Ebola virus infection are made using the following investigations:
+
+antibody-capture enzyme-linked immunosorbent assay (ELISA)
+antigen-capture detection tests
+serum neutralization test
+reverse transcriptase polymerase chain reaction (RT-PCR) assay
+electron microscopy
+virus isolation by cell culture.
+Samples from patients are an extreme biohazard risk; laboratory testing on non-inactivated samples should be conducted under maximum biological containment conditions.
+
+Treatment and vaccines
+
+Supportive care-rehydration with oral or intravenous fluids- and treatment of specific symptoms, improves survival. There is as yet no proven treatment available for EVD. However, a range of potential treatments including blood products, immune therapies and drug therapies are currently being evaluated. No licensed vaccines are available yet, but 2 potential vaccines are undergoing human safety testing.

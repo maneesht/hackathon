@@ -21,6 +21,10 @@ public class Sentence {
         }
     }
 
+    public void setRatingInt(int rating ) {
+        this.rating = rating;
+    }
+
     public int getRating() {
         return rating;
     }

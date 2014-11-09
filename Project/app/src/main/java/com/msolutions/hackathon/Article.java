@@ -1,5 +1,9 @@
 package com.msolutions.hackathon;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +16,11 @@ public class Article {
     ArrayList<Word> words;
     String []sentences2;
     String wordsInSentence[];
-    public Article(String article) {
+    InputStream is;
+    public Article(String article, InputStream is) {
         str = article;
+        this.is = is;
+        str=str.replaceAll("\\p{Punct}\\d","");
     }
     public void init(){
         sentences2 = str.split("\\. ");
@@ -23,12 +30,26 @@ public class Article {
             for(String word: wordsInSentence) {
                 Word wordObj = new Word();
                 wordObj.setWord(word);
-                //wordObj.setHits(checkFrequency(sentences2, word));
-                if(!words.contains(wordObj))
-                words.add(wordObj);
+                wordObj.setHits(1);
+                contains(wordObj);
             }
             Sentence sentence = new Sentence(words, sentences2[i]);
             sentences.add(sentence);
+        }
+    }
+
+    public void contains(Word word) {
+        boolean flag = false;
+        for(int i = 0; i< words.size(); i++) {
+            if(words.get(i).getWord().toLowerCase().contains(word.getWord().toLowerCase())) {
+                Word w = words.get(i);
+                w.setHits(words.get(i).getHits() + 1);
+                words.set(i,w);
+                flag = true;
+            }
+        }
+        if(!flag) {
+            words.add(word);
         }
     }
 
@@ -44,10 +65,31 @@ public class Article {
         for(Sentence sentence : sentences) {
             if(sentence.getRating() > 0)
                 s+= sentence.sentence + ". ";
-
+        }
+        if(s.length() <= 1) {
+            sentences = sortFrequency(sentences);
+            sentences = sortRatings(sentences);
+            for(Sentence sentence : sentences) {
+                if(sentence.getRating() > 0)
+                    s+= sentence.sentence + ". ";
+            }
         }
         return s;
     }
+
+    public List<Sentence> sortFrequency(List<Sentence> sentences) {
+            for (int j = 0; j < sentences.size(); j++) {
+                for(int i = 0; i < sentences.get(j).words.size(); i++) {
+                    if (sentences.get(j).words.get(i).getHits() >= 1) {
+                        Sentence s = sentences.get(j);
+                        s.setRatingInt(s.getRating()+1);
+                        sentences.set(j, s);
+                    }
+                }
+            }
+        return sentences;
+    }
+
     public List<Sentence> sortRatings(List<Sentence> sentences)
     {
         Sentence holder;
@@ -65,16 +107,24 @@ public class Article {
         }
         return sentences;
     }
-    public int checkFrequency(String sentences[], String word) {
+    /*public int checkFrequency(String article, String word) {
         int frequency = 0;
-        for(String sentence : sentences) {
-            sentence = sentence.replaceAll(".", "");
-            sentence = sentence.replaceAll("\\&", "");
-            sentence = sentence.replaceAll(",","");
-            if(sentence.equalsIgnoreCase(word))
-                frequency++;
+        BufferedReader read;
+        read = new BufferedReader(new InputStreamReader(is));
+        String s;
+        try {
+            while((s = read.readLine()) != null) {
+                String [] tokens = s.split("\\s+");
+                for(String token : tokens) {
+                    if(token.toLowerCase().contains(word)) {
+                        frequency++;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return frequency;
-    }
+    }*/
 }
 

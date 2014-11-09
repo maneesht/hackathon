@@ -4,9 +4,40 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.msolutions.hackathon.IntroActivity">
+    tools:context="com.msolutions.hackathon.IntroActivity"
+    android:background="#ff9bffbe">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/LeftWink"
+        android:src="@drawable/logoleftwnk"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:onClick="Wink"
+        android:nestedScrollingEnabled="false" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/RightWink"
+        android:layout_alignTop="@+id/LeftWink"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logorightwnk"
+        android:onClick="Wink"
+        android:nestedScrollingEnabled="false"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/MainLogo"
+        android:src="@drawable/logonownk"
+        android:layout_alignTop="@+id/LeftWink"
+        android:layout_alignLeft="@+id/LeftWink"
+        android:layout_alignStart="@+id/LeftWink"
+        android:visibility="visible"
+        android:onClick="Wink" />
 
 </RelativeLayout>

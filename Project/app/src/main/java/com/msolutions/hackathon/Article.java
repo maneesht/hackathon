@@ -17,7 +17,6 @@ public class Article {
     private int frequency;
     //public static void main(String[] args) {
     //}
-    List<String> listWords = new ArrayList<String>();
     List<Sentence> sentences = new ArrayList<Sentence>();
     String str = "";
 

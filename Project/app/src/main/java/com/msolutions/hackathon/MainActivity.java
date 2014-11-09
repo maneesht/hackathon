@@ -32,6 +32,26 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    public void seeWholeArticle(View view) {
+        BufferedReader read;
+        String str = "";
+        try {
+            InputStream is = getAssets().open("article.txt");
+            read = new BufferedReader(new InputStreamReader(is));
+            String s;
+            while((s = read.readLine()) != null) {
+                str += s;
+            }
+            Log.d("WIN!", str);
+        } catch (Exception e) {
+            Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
+        }
+        Article article = new Article(str);
+        String x = article.getWholeArticle();
+        TextView textView = (TextView) findViewById(R.id.textView);
+        textView.setText(x);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

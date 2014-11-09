@@ -23,7 +23,8 @@ public class Article {
             for(String word: wordsInSentence) {
                 Word wordObj = new Word();
                 wordObj.setWord(word);
-                wordObj.setHits(checkFrequency(sentences2, word));
+                //wordObj.setHits(checkFrequency(sentences2, word));
+                if(!words.contains(wordObj))
                 words.add(wordObj);
             }
             Sentence sentence = new Sentence(words, sentences2[i]);
@@ -38,19 +39,18 @@ public class Article {
     public String getSummary() {
         String s = "";
         init();
-        int count = 0;
+
         sentences = sortRatings(sentences);
         for(Sentence sentence : sentences) {
-            if(sentence.getRating() > 0) {
+            if(sentence.getRating() > 0)
                 s+= sentence.sentence + ". ";
-                count++;
-            }
+
         }
         return s;
     }
     public List<Sentence> sortRatings(List<Sentence> sentences)
     {
-        Sentence holder=new Sentence();
+        Sentence holder;
         boolean flag=true;
         while(flag) {
             for (int x = 0; x < sentences.size() - 1; x++) {

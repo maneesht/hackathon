@@ -7,9 +7,6 @@ public class Word {
     private String word;
     private int hits;
 
-    public Word(String word) {
-        this.word = word;
-    }
     public Word() {
 
     }

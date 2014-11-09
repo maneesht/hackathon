@@ -3,17 +3,12 @@ package com.msolutions.hackathon;
 /**
  * Created by Maneesh on 11/8/2014.
  */
-import android.util.Log;
-
 import java.util.*;
 public class Sentence {
     String sentence;
     List<Word> words = new ArrayList<Word>();
     private int rating = 0;
     String keyWords[] = {"large", "small", "great", "worse", "bad", "statistic", "most", "emergency"};
-    public Sentence(){
-
-    }
 
     public void setRating() {
         for(Word wordObj: words) {

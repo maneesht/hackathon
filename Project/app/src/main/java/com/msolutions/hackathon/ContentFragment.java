@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class LoaderFragment extends Fragment {
+public class ContentFragment extends Fragment {
     String text = "";
-    public LoaderFragment() {
+    public ContentFragment() {
         // Required empty public constructor
     }
 
@@ -33,7 +33,7 @@ public class LoaderFragment extends Fragment {
                 "Roboto-Light.ttf");
         button.setTypeface(font);
         textView .setTypeface(font);
-        textView.setTextSize(30);
+        textView.setTextSize(25);
         textView.setText(text);
         return rootView;
     }

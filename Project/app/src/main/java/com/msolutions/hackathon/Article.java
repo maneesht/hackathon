@@ -107,24 +107,5 @@ public class Article {
         }
         return sentences;
     }
-    /*public int checkFrequency(String article, String word) {
-        int frequency = 0;
-        BufferedReader read;
-        read = new BufferedReader(new InputStreamReader(is));
-        String s;
-        try {
-            while((s = read.readLine()) != null) {
-                String [] tokens = s.split("\\s+");
-                for(String token : tokens) {
-                    if(token.toLowerCase().contains(word)) {
-                        frequency++;
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return frequency;
-    }*/
 }
 

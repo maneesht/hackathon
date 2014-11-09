@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -40,7 +39,7 @@ public class MainActivity extends ActionBarActivity {
         String str = "";
         InputStream is =null;
         try {
-            is = getAssets().open("article.txt");
+            is = getAssets().open("article2.txt");
             read = new BufferedReader(new InputStreamReader(is));
             String s;
             while((s = read.readLine()) != null) {
@@ -111,7 +110,7 @@ public class MainActivity extends ActionBarActivity {
                         String str = sb_content.toString();
                         Article article = new Article(str, is);
                         String x = article.getSummary();
-                        Fragment fragment = new LoaderFragment();
+                        Fragment fragment = new ContentFragment();
                         Bundle bundle = new Bundle();
                         bundle.putString("msg", x);
                         fragment.setArguments(bundle);

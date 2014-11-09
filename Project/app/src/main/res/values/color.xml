@@ -2,4 +2,5 @@
 <resources>
     <color name="Green">#4CAF50</color>
     <color name="Amber">#FFA000</color>
+    <color name="Gray">#424242</color>
 </resources>

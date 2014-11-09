@@ -3,6 +3,7 @@ package com.msolutions.hackathon;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,12 +30,13 @@ public class MainActivity extends ActionBarActivity {
             BufferedReader read;
             String str = "";
             try {
-                InputStream is = getAssets().open("ebola.txt");
+                InputStream is = getAssets().open("article.txt");
                 read = new BufferedReader(new InputStreamReader(is, "UTF-8"));
                 String s;
                 while((s = read.readLine()) != null) {
                     str += s;
                 }
+                Log.d("WIN!", str);
             } catch (Exception e) {
                 Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
             }

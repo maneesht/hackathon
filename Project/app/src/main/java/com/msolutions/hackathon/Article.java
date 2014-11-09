@@ -1,5 +1,7 @@
 package com.msolutions.hackathon;
 
+import android.util.Log;
+
 import java.util.List;
 
 /**
@@ -17,35 +19,30 @@ public class Article {
     //}
     List<String> listWords = new ArrayList<String>();
     List<Sentence> sentences = new ArrayList<Sentence>();
+    String str = "";
+
+    String []sentences2;
+
+    public Article(String article) {
+        str = article;
+    }
     public void init(){
         String temp="";
 
-        BufferedReader read;
-        String str = "";
-        String []sentences;
-        try {
-            read = new BufferedReader(new FileReader("src/word/Ebola.txt"));
-            String s;
-            while((s = read.readLine()) != null) {
-                str += s;
-            }
-        } catch (Exception e) {
-            Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
-        }
-        sentences = str.split("\\. ");
-        for(int i = 0; i < sentences.length; i++) {
+        sentences2 = str.split("\\. ");
+        for(int i = 0; i < sentences2.length; i++) {
             //System.out.println(words[i]);
             ArrayList<Word> words = new ArrayList<Word>();
-            String wordsInSentence[] = sentences[i].split(" ");
+            String wordsInSentence[] = sentences2[i].split(" ");
             int hits = 0;
             for(String word: wordsInSentence) {
                 Word wordObj = new Word();
                 wordObj.setWord(word);
-                hits = checkFrequency(sentences, word);
+                hits = checkFrequency(sentences2, word);
                 wordObj.setHits(hits);
                 words.add(wordObj);
             }
-            Sentence sentence = new Sentence(words, sentences[i]);
+            Sentence sentence = new Sentence(words, sentences2[i]);
             this.sentences.add(sentence);
         }
     }
@@ -54,8 +51,11 @@ public class Article {
         String s = "";
         init();
 
-        for(Sentence sentence: sentences) {
-
+        sentences = sortRatings(sentences);
+        for(Sentence sentence : sentences) {
+            if(sentence.getRating() > 0) {
+                Log.d("Rating", sentence.sentence);
+            }
         }
         return s;
     }

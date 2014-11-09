@@ -1,7 +1,6 @@
 package com.msolutions.hackathon;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -22,6 +26,20 @@ public class MainActivity extends ActionBarActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
+            BufferedReader read;
+            String str = "";
+            try {
+                InputStream is = getAssets().open("ebola.txt");
+                read = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                String s;
+                while((s = read.readLine()) != null) {
+                    str += s;
+                }
+            } catch (Exception e) {
+                Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
+            }
+            Article article = new Article(str);
+            article.getSummary();
         }
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="Green">#4CAF50</color>
-    <color name="Amber">#FFA000</color>
-    <color name="Gray">#424242</color>
+    <color name="Purple">#6A1B9A</color>
+    <color name="Gray">#BDBDBD</color>
 </resources>

@@ -80,7 +80,7 @@ public class Article {
     public List<Sentence> sortFrequency(List<Sentence> sentences) {
             for (int j = 0; j < sentences.size(); j++) {
                 for(int i = 0; i < sentences.get(j).words.size(); i++) {
-                    if (sentences.get(j).words.get(i).getHits() >= 1) {
+                    if (sentences.get(j).words.get(i).getHits() >= 3) {
                         Sentence s = sentences.get(j);
                         s.setRatingInt(s.getRating()+1);
                         sentences.set(j, s);

@@ -1,7 +1,7 @@
 package com.msolutions.hackathon;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -12,15 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
-import android.widget.Scroller;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -93,9 +89,11 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
-
+            final View rootView = inflater.inflate(R.layout.fragment_loader, container, false);
+            initiate(rootView);
+            return rootView;
+        }
+        public void initiate(final View rootView) {
             Thread thread = new Thread() {
                 @Override
                 public void run() {
@@ -105,32 +103,28 @@ public class MainActivity extends ActionBarActivity {
                         InputStream is = getActivity().getAssets().open("article.txt");
                         read = new BufferedReader(new InputStreamReader(is));
                         String s;
-                        String str = "";
+                        StringBuilder sb_content = new StringBuilder();
                         while((s = read.readLine()) != null) {
-                            str += s;
+                            sb_content.append(s);
                         }
+                        String str = sb_content.toString();
                         Article article = new Article(str);
-                        final String x = article.getSummary();
-                        getActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+                        String x = article.getSummary();
+                        Fragment fragment = new LoaderFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("msg", x);
+                        fragment.setArguments(bundle);
+                        FragmentManager fm = getActivity().getSupportFragmentManager();
+                        FragmentTransaction transaction = fm.beginTransaction();
+                        transaction.replace(R.id.container, fragment);
+                        transaction.commit();
 
-                                TextView textView = (TextView) rootView.findViewById(R.id.textView);
-                                final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
-                                ScrollView scrollView = (ScrollView) rootView.findViewById(R.id.scrollView);
-                                progressBar.setVisibility(View.INVISIBLE);
-                                progressBar.setProgress(100);
-                                scrollView.setVisibility(View.VISIBLE);
-                                textView.setText(x);
-                            }
-                        });
                     } catch (Exception e) {
-                        Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
+
                     }
                 }
             };
             thread.start();
-            return rootView;
         }
     }
 }

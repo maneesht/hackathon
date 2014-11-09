@@ -1,5 +1,7 @@
 package com.msolutions.hackathon;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,11 +11,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+import android.widget.Scroller;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -86,24 +93,43 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            BufferedReader read;
-            String str = "";
-            try {
-                InputStream is = getActivity().getAssets().open("article.txt");
-                read = new BufferedReader(new InputStreamReader(is));
-                String s;
-                while((s = read.readLine()) != null) {
-                    str += s;
+            final View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+
+            Thread thread = new Thread() {
+                @Override
+                public void run() {
+                    try {
+
+                        BufferedReader read;
+                        InputStream is = getActivity().getAssets().open("article.txt");
+                        read = new BufferedReader(new InputStreamReader(is));
+                        String s;
+                        String str = "";
+                        while((s = read.readLine()) != null) {
+                            str += s;
+                        }
+                        Article article = new Article(str);
+                        final String x = article.getSummary();
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                TextView textView = (TextView) rootView.findViewById(R.id.textView);
+                                final ProgressBar progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+                                ScrollView scrollView = (ScrollView) rootView.findViewById(R.id.scrollView);
+                                progressBar.setVisibility(View.INVISIBLE);
+                                progressBar.setProgress(100);
+                                scrollView.setVisibility(View.VISIBLE);
+                                textView.setText(x);
+                            }
+                        });
+                    } catch (Exception e) {
+                        Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
+                    }
                 }
-                Log.d("WIN!", str);
-            } catch (Exception e) {
-                Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
-            }
-            Article article = new Article(str);
-            String x = article.getSummary();
-            TextView textView = (TextView) rootView.findViewById(R.id.textView);
-            textView.setText(x);
+            };
+            thread.start();
             return rootView;
         }
     }

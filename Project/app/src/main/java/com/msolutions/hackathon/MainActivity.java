@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -27,21 +28,7 @@ public class MainActivity extends ActionBarActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
-            BufferedReader read;
-            String str = "";
-            try {
-                InputStream is = getAssets().open("article.txt");
-                read = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-                String s;
-                while((s = read.readLine()) != null) {
-                    str += s;
-                }
-                Log.d("WIN!", str);
-            } catch (Exception e) {
-                Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
-            }
-            Article article = new Article(str);
-            article.getSummary();
+
         }
     }
 
@@ -80,6 +67,23 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            BufferedReader read;
+            String str = "";
+            try {
+                InputStream is = getActivity().getAssets().open("article.txt");
+                read = new BufferedReader(new InputStreamReader(is));
+                String s;
+                while((s = read.readLine()) != null) {
+                    str += s;
+                }
+                Log.d("WIN!", str);
+            } catch (Exception e) {
+                Logger.getLogger(Article.class.getName()).log(Level.SEVERE, null, e);
+            }
+            Article article = new Article(str);
+            String x = article.getSummary();
+            TextView textView = (TextView) rootView.findViewById(R.id.textView);
+            textView.setText(x);
             return rootView;
         }
     }

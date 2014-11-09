@@ -1,9 +1,23 @@
-﻿The Ebola virus causes an acute, serious illness which is often fatal if untreated. Ebola virus disease (EVD) first appeared in 1976 in 2 simultaneous outbreaks, one in Nzara, Sudan, and the other in Yambuku, Democratic Republic of Congo. The latter occurred in a village near the Ebola River, from which the disease takes its name.
+﻿Background
 
- The current outbreak in west Africa, (first cases notified in March 2014), is the largest and most complex Ebola outbreak since the Ebola virus was first discovered in 1976. There have been more cases and deaths in this outbreak than all others combined. It has also spread between countries starting in Guinea then spreading across land borders to Sierra Leone and Liberia, by air (1 traveller only) to Nigeria, and by land (1 traveller) to Senegal.
+The Ebola virus causes an acute, serious illness which is often fatal if untreated. Ebola virus disease (EVD) first appeared in 1976 in 2 simultaneous outbreaks, one in Nzara, Sudan, and the other in Yambuku, Democratic Republic of Congo. The latter occurred in a village near the Ebola River, from which the disease takes its name.
 
- The most severely affected countries, Guinea, Sierra Leone and Liberia have very weak health systems, lacking human and infrastructural resources, having only recently emerged from long periods of conflict and instability. On August 8, the WHO Director-General declared this outbreak a Public Health Emergency of International Concern.
+The current outbreak in west Africa, (first cases notified in March 2014), is the largest and most complex Ebola outbreak since the Ebola virus was first discovered in 1976. There have been more cases and deaths in this outbreak than all others combined. It has also spread between countries starting in Guinea then spreading across land borders to Sierra Leone and Liberia, by air (1 traveller only) to Nigeria, and by land (1 traveller) to Senegal.
 
- A separate, unrelated Ebola outbreak began in Boende, Equateur, an isolated part of the Democratic Republic of Congo.
+The most severely affected countries, Guinea, Sierra Leone and Liberia have very weak health systems, lacking human and infrastructural resources, having only recently emerged from long periods of conflict and instability. On August 8, the WHO Director-General declared this outbreak a Public Health Emergency of International Concern.
 
- The virus family Filoviridae includes 3 genera: Cuevavirus, Marburgvirus, and Ebolavirus. There are 5 species that have been identified: Zaire, Bundibugyo, Sudan, Reston and Taï Forest. The first 3, Bundibugyo ebolavirus, Zaire ebolavirus, and Sudan ebolavirus have been associated with large outbreaks in Africa. The virus causing the 2014 west African outbreak belongs to the Zaire species.
+A separate, unrelated Ebola outbreak began in Boende, Equateur, an isolated part of the Democratic Republic of Congo.
+
+The virus family Filoviridae includes 3 genera: Cuevavirus, Marburgvirus, and Ebolavirus. There are 5 species that have been identified: Zaire, Bundibugyo, Sudan, Reston and Taï Forest. The first 3, Bundibugyo ebolavirus, Zaire ebolavirus, and Sudan ebolavirus have been associated with large outbreaks in Africa. The virus causing the 2014 west African outbreak belongs to the Zaire species.
+
+Transmission
+
+It is thought that fruit bats of the Pteropodidae family are natural Ebola virus hosts. Ebola is introduced into the human population through close contact with the blood, secretions, organs or other bodily fluids of infected animals such as chimpanzees, gorillas, fruit bats, monkeys, forest antelope and porcupines found ill or dead or in the rainforest.
+
+Ebola then spreads through human-to-human transmission via direct contact (through broken skin or mucous membranes) with the blood, secretions, organs or other bodily fluids of infected people, and with surfaces and materials (e.g. bedding, clothing) contaminated with these fluids.
+
+Health-care workers have frequently been infected while treating patients with suspected or confirmed EVD. This has occurred through close contact with patients when infection control precautions are not strictly practiced.
+
+Burial ceremonies in which mourners have direct contact with the body of the deceased person can also play a role in the transmission of Ebola.
+
+People remain infectious as long as their blood and body fluids, including semen and breast milk, contain the virus. Men who have recovered from the disease can still transmit the virus through their semen for up to 7 weeks after recovery from illness.

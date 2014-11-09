@@ -47,14 +47,21 @@ public class Article {
         }
     }
 
+    public String getWholeArticle() {
+        return str;
+    }
+
     public String getSummary() {
         String s = "";
         init();
-
+        int count = 0;
         sentences = sortRatings(sentences);
         for(Sentence sentence : sentences) {
             if(sentence.getRating() > 0) {
                 Log.d("Rating", sentence.sentence);
+                s+= sentence.sentence + ". ";
+                count++;
+                Log.d("Sentences", Integer.toString(count));
             }
         }
         return s;

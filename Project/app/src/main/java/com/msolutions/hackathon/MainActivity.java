@@ -132,6 +132,7 @@ String page = "article.txt";
                         }
                     }
                 }
+
                 if(count == typedWords.length) {
                     s+=sentence + ".";
                 }

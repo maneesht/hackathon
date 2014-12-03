@@ -6,7 +6,17 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@color/Purple"
     tools:context=".MainActivity$PlaceholderFragment">
+<android.support.v7.widget.CardView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@color/Purple"
+    android:layout_below="@+id/cardView4"
+    card_view:cardElevation="10dp"
+    android:layout_alignParentLeft="true"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
 
+    android:layout_alignParentStart="true"
+    android:layout_above="@+id/cardView2">
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_above="@+id/cardView2"
@@ -23,15 +33,17 @@
                 card_view:cardBackgroundColor="@color/Purple"
                 card_view:elevation="200dp"
                 android:layout_height="fill_parent">
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/Gray"
-                android:id="@+id/textView"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Gray"
+                    android:id="@+id/textView"/>
 
             </android.support.v7.widget.CardView>
         </RelativeLayout>
     </ScrollView>
+    </android.support.v7.widget.CardView>
+
 
     <android.support.v7.widget.CardView
         android:layout_width="fill_parent"
@@ -60,8 +72,8 @@
     card_view:cardBackgroundColor="@color/Purple"
     card_view:cardElevation="20dp"
     android:layout_height="wrap_content"
-    android:layout_toLeftOf="@+id/button2"
-    android:layout_toStartOf="@+id/button2">
+    android:layout_toLeftOf="@+id/cardView4"
+    android:layout_toStartOf="@+id/cardView4">
     <EditText
         android:layout_width="fill_parent"
         android:hint="Enter key word(s)"
@@ -69,16 +81,24 @@
         android:layout_height="fill_parent"
         android:id="@+id/editText" />
     </android.support.v7.widget.CardView>
-
+<android.support.v7.widget.CardView
+    android:layout_width="wrap_content"
+    android:id="@+id/cardView4"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardBackgroundColor="@color/Purple"
+    card_view:cardElevation="20dp"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true"
+    android:layout_height="wrap_content">
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="filter"
         android:text="GO!"
-        android:id="@+id/button2"
-        android:layout_above="@+id/scrollView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="@drawable/on_select"
+        android:id="@+id/button2" />
+    </android.support.v7.widget.CardView>
+
 
 </RelativeLayout>

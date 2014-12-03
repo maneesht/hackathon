@@ -70,7 +70,7 @@ public class Article {
             sentences = sortFrequency(sentences);
             sentences = sortRatings(sentences);
             for(Sentence sentence : sentences) {
-                if(sentence.getRating() > 0)
+                if(sentence.getRating() > 1)
                     s+= sentence.sentence + ". ";
             }
         }
